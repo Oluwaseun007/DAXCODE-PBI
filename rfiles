@@ -1,0 +1,7 @@
+carsales %>%
+  replace_na(list(Price=0)) %>% 
+  select(Engine.Type,Price,Mileage) %>% 
+  group_by(Engine.Type)%>% 
+  mutate(avgprice=mean(Price)) %>% 
+  #ungroup(Engine.Type) %>% 
+  arrange(Engine.Type)
